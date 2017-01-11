@@ -24,80 +24,80 @@ When this feature was released as a two keywords: ```use strict```, it was faili
 
 ### What does it do and why to use it?
 
-- avoid accidentally creating global variable
+- **avoid accidentally creating global variable**
 
-Not strict mode:
-```js
-num = 1 // I just created a global variable
-console.log(window.num);
+  Not strict mode:
+  ```js
+  num = 1 // I just created a global variable
+  console.log(window.num);
 
-```
+  ```
 
-In strict mode - above code throws an error: ```ReferenceError: num is not defined```
+  In strict mode - above code throws an error: ```ReferenceError: num is not defined```
 
-```js
-"use strict";
-num = 1 // ReferenceError
+  ```js
+  "use strict";
+  num = 1 // ReferenceError
 
-```
+  ```
 
-- makes you stop using the reserved keywords even in a future released of javascript
+- **makes you stop using the reserved keywords even in a future released of javascript**
 
-Not strict mode:
+  Not strict mode:
 
-```js
-var let = 1; // this is be ok without strict mode
+  ```js
+  var let = 1; // this is be ok without strict mode
 
-```
+  ```
 
-With strict mode - above code throws an error: ```Unexpected strict mode reserved word```
+  With strict mode - above code throws an error: ```Unexpected strict mode reserved word```
 
-```js
-"use strict";
+  ```js
+  "use strict";
 
-var let = 1; // Error
+  var let = 1; // Error
 
-```
+  ```
 
-- doesn't allow you to delete function, variables or function arguments
+- **doesn't allow you to delete function, variable or function argument**
 
-Not strict mode:
-```js
-var foo = 1;
-delete foo; // this is ok with no strict mode
+  Not strict mode:
+  ```js
+  var foo = 1;
+  delete foo; // this is ok with no strict mode
 
-function moo() {};
-delete moo; // this is ok as well
-```
+  function moo() {};
+  delete moo; // this is ok as well
+  ```
 
-With strict mode  - above code throws an error: ```SyntaxError: Delete of an unqualified identifier in strict mode.```
+  With strict mode  - above code throws an error: ```SyntaxError: Delete of an unqualified identifier in strict mode.```
 
-Not strict mode:
-```js
-"use strict";
+  Not strict mode:
+  ```js
+  "use strict";
 
-var foo = 1;
-delete foo; // Error
+  var foo = 1;
+  delete foo; // Error
 
-function moo() {};
-delete moo; // Error
+  function moo() {};
+  delete moo; // Error
 
-function moo(arg) {
-  delete arg; // Error
-}
-```
+  function moo(arg) {
+    delete arg; // Error
+  }
+  ```
 
-- makes ```eval```a bit safer to use
+- **makes ```eval```a bit safer to use (still dangerous but powerful feature)**
 
-Not strict mode
-```js
-eval("var a = 1");
-console.log(a) // 1  - leaking a variable from eval scope
-```
+  Not strict mode
+  ```js
+  eval("var a = 1");
+  console.log(a) // 1  - leaking a variable from eval scope
+  ```
 
-With strict mode  - above code throws an error: ```ReferenceError: a is not defined```
-```js
-"use strict";
-eval("var a = 1");
-console.log(a); //ReferenceError: a is not defined
-```
+  With strict mode  - above code throws an error: ```ReferenceError: a is not defined```
+  ```js
+  "use strict";
+  eval("var a = 1");
+  console.log(a); //ReferenceError: a is not defined
+  ```
