@@ -1,7 +1,3 @@
-
-
-
-
 **Exercise:**
 
 What will be the console output?
